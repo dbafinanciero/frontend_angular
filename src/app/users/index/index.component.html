@@ -1,0 +1,35 @@
+<section>
+
+  <div class="d-flex justify-content-between">
+    <h4>Modulo de Administracion</h4>
+    <h3>Administracion de usuarios</h3>
+    <a routerLink="/person/create" class="btn btn-success">Create New Person</a>
+  </div>
+
+  <br>
+
+  <table class="table ">
+    <tr>
+      <th>Usuario</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Departamento</th>
+      <th>Cargo</th>
+      <th>Email</th>
+      <th width="220px">Action</th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{ user.usuario }}</td>
+      <td>{{ user.primerNombre }}</td>
+      <td>{{ user.primerApellido }}</td>
+      <td>{{ user.departamento }}</td>
+      <td>{{ user.cargo }}</td>
+      <td>--</td>
+      <td>
+        <a href="#" [routerLink]="['/users/', 'edit', user.usuario  ]" class="btn btn-primary">Edit</a>
+        <button type="button" (click)="deletePerson(user.usuario)" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </table>
+</section>
+
